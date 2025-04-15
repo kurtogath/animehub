@@ -1,0 +1,15 @@
+.custom-card {
+    display: flex;
+    height: 200px;
+    cursor: pointer;
+    border-color: var(--color-violet-500);
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    &.main-page {
+        height: 150px;
+    }
+    &.img-card {
+        align-items: unset;
+    }
+}

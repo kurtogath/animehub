@@ -1,8 +1,4 @@
-type AnimeIMG = {
-    image_url: string;
-    large_image_url: string;
-    small_image_url: string;
-};
+import { ImgObjet } from "../globals";
 
 export type AnimeTops = {
     // aired: {from: string, to: string, prop: {…}, string: string}
@@ -17,8 +13,8 @@ export type AnimeTops = {
     favorites: number;
     // genres: (3) [{…}, {…}, {…}]
     images: {
-        jpg: AnimeIMG;
-        webp: AnimeIMG;
+        jpg: ImgObjet;
+        webp: ImgObjet;
     };
     // licensors: [{…}]
     mal_id: number;

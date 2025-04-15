@@ -4,9 +4,9 @@ type Props = {
     score: number;
 };
 
-export function AnimeCard({ title, image, score }: Props) {
+export function ItemCard({ title, image, score }: Props) {
     return (
-        <div className="custom-card flex w-80 overflow-hidden rounded-xl border border-violet-500 align-middle shadow-md transition-all hover:shadow-lg md:w-56 lg:w-60 xl:w-80">
+        <div className="custom-card img-card flex w-80 overflow-hidden rounded-xl border border-violet-500 align-middle shadow-md transition-all hover:shadow-lg md:w-56 lg:w-60 xl:w-80">
             <img
                 src={image}
                 alt={title}

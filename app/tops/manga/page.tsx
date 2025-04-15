@@ -1,21 +1,21 @@
 "use client";
 import { ItemCard } from "@/components/cards/ItemCard";
-import { AnimeTops } from "@/types/tops";
+import { MangaTops } from "@/types/tops";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function Anime() {
-    const [animes, setAnimes] = useState<AnimeTops[]>([]);
+export default function Manga() {
+    const [mangas, setMangas] = useState<MangaTops[]>([]);
 
     useEffect(() => {
-        axios.get("/api/tops?type=anime").then((res) => {
-            setAnimes(res.data);
+        axios.get("/api/tops?type=manga").then((res) => {
+            setMangas(res.data);
         });
     }, []);
 
-    function renderAnimeCards(animes: AnimeTops[]) {
-        if (animes.length === 0) return null;
-        return animes.map((anime) => (
+    function renderMangaTops(mangas: MangaTops[]) {
+        if (mangas.length === 0) return null;
+        return mangas.map((anime) => (
             <ItemCard
                 key={anime.mal_id}
                 title={anime.title}
@@ -27,7 +27,7 @@ export default function Anime() {
 
     return (
         <div className="grid grid-cols-1 justify-items-center gap-8 px-8 py-0 md:grid-cols-2 xl:grid-cols-3">
-            {renderAnimeCards(animes)}
+            {renderMangaTops(mangas)}
         </div>
     );
 }
