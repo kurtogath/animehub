@@ -94,7 +94,7 @@ function parseData(res:any, type:string) {
             break;
 
         default:
-            break;
+    break;
     } 
 
     return data

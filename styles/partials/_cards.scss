@@ -4,9 +4,10 @@
     cursor: pointer;
     border-color: var(--color-violet-500);
     overflow: hidden;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     &.main-page {
+        justify-content: center;
         height: 150px;
     }
     &.img-card {

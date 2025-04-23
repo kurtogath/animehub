@@ -1,4 +1,5 @@
 "use client";
+import { User } from "lucide-react";
 import Link from "next/link";
 
 export default function Header() {
@@ -8,9 +9,12 @@ export default function Header() {
                 <Link href="/" className="text-2xl font-bold">
                     AnimeHub
                 </Link>
-                <nav className="space-x-4">
+                <nav className="flex space-x-4">
                     <Link href="/" className="hover:text-gray-300">
                         Inicio
+                    </Link>
+                    <Link href="/login" className="hover:text-gray-300">
+                        <User />
                     </Link>
                 </nav>
             </div>
