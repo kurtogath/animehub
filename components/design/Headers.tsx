@@ -1,6 +1,7 @@
 "use client";
 import { User } from "lucide-react";
 import Link from "next/link";
+import { SearchBar } from "../navBar/SearchBar";
 
 export default function Header() {
     return (
@@ -10,6 +11,7 @@ export default function Header() {
                     AnimeHub
                 </Link>
                 <nav className="flex space-x-4">
+                    <SearchBar />
                     <Link href="/" className="hover:text-gray-300">
                         Inicio
                     </Link>

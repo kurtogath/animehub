@@ -1,48 +1,25 @@
 // app/api/tops/route.ts
-import { parseAnimeData, parseCharacterData, parseMangaData } from "@/utils";
+import { parseAnimeData } from "@/utils";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
 const baseUrl = process.env.API_BASE_URL;
 
-export function parseData(res: any, type: string) {
-    let data = null;
-    switch (type) {
-        case "anime":
-            data = parseAnimeData(res);
-            break;
-
-        case "manga":
-            data = parseMangaData(res);
-            break;
-
-        case "characters":
-            data = parseCharacterData(res);
-            break;
-
-        default:
-            break;
-    }
-
-    return data;
-}
-
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
-    const type = searchParams.get("type") || "anime";
+    const type = searchParams.get("anime");
 
-    console.log("animes top");
+    console.log(`type ${type}`);
 
-    const allowedTypes = ["anime", "manga", "characters"];
-    if (!allowedTypes.includes(type)) {
+    if (type === "") {
         return NextResponse.json(
-            { error: `Tipo '${type}' no soportado.` },
+            { error: `No se han pasado datos` },
             { status: 400 },
         );
     }
 
     try {
-        const res = await axios.get(`${baseUrl}/top/${type}`);
+        const res = await axios.get(`${baseUrl}/anime?q=${type}`);
 
         if (res.status !== 200) {
             return NextResponse.json(
@@ -50,15 +27,14 @@ export async function GET(req: Request) {
                 { status: 500 },
             );
         }
-        const resp = parseData(res.data.data, type);
 
+        const resp = parseAnimeData(res.data.data);
         if (resp === null) {
             return NextResponse.json(
                 { error: "Error al parsear los datos" },
                 { status: 500 },
             );
         }
-
         return NextResponse.json(resp);
     } catch (error) {
         console.log("error => ", error);

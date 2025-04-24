@@ -31,7 +31,11 @@ export default function RootLayout({
             >
                 <Header />
                 <div className="min-h-screen p-8 sm:p-20">
-                    <main className="">{children}</main>
+                    <main className="">
+                        <div className="grid grid-cols-1 justify-items-center gap-8 px-8 py-0 md:grid-cols-2 xl:grid-cols-3">
+                            {children}
+                        </div>
+                    </main>
                 </div>
                 <Footer />
             </body>
