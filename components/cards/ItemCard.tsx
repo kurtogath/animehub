@@ -15,7 +15,7 @@ export function ItemCard({ title, image, score }: Props) {
                 />
             </div>
             <div className="flex basis-5/8 flex-col justify-center p-4">
-                <h3 className="text-lg font-semibold">{title}</h3>
+                <h3 className="line-clamp-3 text-lg font-semibold">{title}</h3>
                 <p className="mt-2 text-sm text-gray-600">⭐ {score}</p>
             </div>
         </div>

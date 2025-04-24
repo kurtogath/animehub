@@ -11,7 +11,7 @@ export async function GET(req: Request) {
 
     console.log(`type ${type}`);
 
-    if (type === "") {
+    if (type === "" || type === null) {
         return NextResponse.json(
             { error: `No se han pasado datos` },
             { status: 400 },
@@ -28,13 +28,15 @@ export async function GET(req: Request) {
             );
         }
 
-        const resp = parseAnimeData(res.data.data);
-        if (resp === null) {
+        const allSearch = parseAnimeData(res.data.data);
+        if (allSearch === null) {
             return NextResponse.json(
                 { error: "Error al parsear los datos" },
                 { status: 500 },
             );
         }
+        console.log(`type >= ${type}`);
+        const resp = allSearch.filter(el => el.title.toLowerCase().includes(type.toLowerCase()))
         return NextResponse.json(resp);
     } catch (error) {
         console.log("error => ", error);
