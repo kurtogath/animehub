@@ -1,7 +1,7 @@
-"use client";
-import { User } from "lucide-react";
-import Link from "next/link";
-import { SearchBar } from "../navBar/SearchBar";
+'use client';
+import { User } from 'lucide-react';
+import Link from 'next/link';
+import { SearchBar } from '../navBar/SearchBar';
 
 export default function Header() {
     return (

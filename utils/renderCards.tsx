@@ -1,5 +1,5 @@
-import { ItemCard } from "@/components/cards/ItemCard";
-import { AnimeTops } from "../types/tops/anime";
+import { ItemCard } from '@/components/cards/ItemCard';
+import { AnimeTops } from '../types/tops/anime';
 
 export function renderAnimeCards(animes: AnimeTops[]) {
     if (animes.length === 0) return null;

@@ -1,2 +1,2 @@
-export * from "./parseData";
-export * from "./renderCards";
+export * from './parseData';
+export * from './renderCards';

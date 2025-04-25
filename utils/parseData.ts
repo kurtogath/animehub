@@ -1,4 +1,4 @@
-import { AnimeTops, CharactersTops, MangaTops } from "@/types/tops";
+import { AnimeTops, CharactersTops, MangaTops } from '@/types/tops';
 
 export function parseAnimeData(res: any) {
     const resp: AnimeTops[] = res.map((anime: AnimeTops) => ({

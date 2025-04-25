@@ -1,12 +1,12 @@
-"use client";
-import { renderAnimeCards } from "@/utils";
-import axios from "axios";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+import { renderAnimeCards } from '@/utils';
+import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function SearchPage() {
     const searchParams = useSearchParams();
-    const query = searchParams.get("q");
+    const query = searchParams.get('q');
     const [results, setResults] = useState([]);
 
     useEffect(() => {

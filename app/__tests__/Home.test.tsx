@@ -1,13 +1,13 @@
-import HomePage from "@/app/page";
-import { render, screen } from "@testing-library/react";
+import HomePage from '@/app/page';
+import { render, screen } from '@testing-library/react';
 
-describe("HomePage test", () => {
+describe('HomePage test', () => {
     const setup = () => {
         render(<HomePage />);
     };
 
-    it("renders homepage", () => {
+    it('renders homepage', () => {
         setup();
-        expect(screen.getByText("Mejores animes")).toBeInTheDocument();
+        expect(screen.getByText('Mejores animes')).toBeInTheDocument();
     });
 });

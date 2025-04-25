@@ -1,14 +1,14 @@
-"use client";
-import { ItemCard } from "@/components/cards/ItemCard";
-import { MangaTops } from "@/types/tops";
-import axios from "axios";
-import { useEffect, useState } from "react";
+'use client';
+import { ItemCard } from '@/components/cards/ItemCard';
+import { MangaTops } from '@/types/tops';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Manga() {
     const [mangas, setMangas] = useState<MangaTops[]>([]);
 
     useEffect(() => {
-        axios.get("/api/tops?type=manga").then((res) => {
+        axios.get('/api/tops?type=manga').then((res) => {
             setMangas(res.data);
         });
     }, []);

@@ -1,21 +1,21 @@
-"use client";
-import { Search } from "lucide-react";
+'use client';
+import { Search } from 'lucide-react';
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export function SearchBar() {
-    const [search, setSearch] = useState<string>("");
+    const [search, setSearch] = useState<string>('');
     const router = useRouter();
 
     const handleSearch = () => {
-        if (search.trim() === "") return;
+        if (search.trim() === '') return;
         router.push(`/search?q=${encodeURIComponent(search.trim())}`);
-        setSearch("");
+        setSearch('');
     };
 
     const handleKeyUp = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter" && search.trim() !== "") {
+        if (e.key === 'Enter' && search.trim() !== '') {
             handleSearch();
         }
     };

@@ -1,22 +1,22 @@
 // app/api/tops/route.ts
-import { parseAnimeData, parseCharacterData, parseMangaData } from "@/utils";
-import axios from "axios";
-import { NextResponse } from "next/server";
+import { parseAnimeData, parseCharacterData, parseMangaData } from '@/utils';
+import axios from 'axios';
+import { NextResponse } from 'next/server';
 
 const baseUrl = process.env.API_BASE_URL;
 
 export function parseData(res: any, type: string) {
     let data = null;
     switch (type) {
-        case "anime":
+        case 'anime':
             data = parseAnimeData(res);
             break;
 
-        case "manga":
+        case 'manga':
             data = parseMangaData(res);
             break;
 
-        case "characters":
+        case 'characters':
             data = parseCharacterData(res);
             break;
 
@@ -29,15 +29,15 @@ export function parseData(res: any, type: string) {
 
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
-    const type = searchParams.get("type") || "anime";
+    const type = searchParams.get('type') || 'anime';
 
-    console.log("animes top");
+    console.log('animes top');
 
-    const allowedTypes = ["anime", "manga", "characters"];
+    const allowedTypes = ['anime', 'manga', 'characters'];
     if (!allowedTypes.includes(type)) {
         return NextResponse.json(
             { error: `Tipo '${type}' no soportado.` },
-            { status: 400 },
+            { status: 400 }
         );
     }
 
@@ -46,25 +46,25 @@ export async function GET(req: Request) {
 
         if (res.status !== 200) {
             return NextResponse.json(
-                { error: "Error al obtener datos" },
-                { status: 500 },
+                { error: 'Error al obtener datos' },
+                { status: 500 }
             );
         }
         const resp = parseData(res.data.data, type);
 
         if (resp === null) {
             return NextResponse.json(
-                { error: "Error al parsear los datos" },
-                { status: 500 },
+                { error: 'Error al parsear los datos' },
+                { status: 500 }
             );
         }
 
         return NextResponse.json(resp);
     } catch (error) {
-        console.log("error => ", error);
+        console.log('error => ', error);
         return NextResponse.json(
-            { error: "Error del servidor" },
-            { status: 500 },
+            { error: 'Error del servidor' },
+            { status: 500 }
         );
     }
 }

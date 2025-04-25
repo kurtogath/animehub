@@ -1,4 +1,4 @@
-import { ImgObjet } from "../globals";
+import { ImgObjet } from '../globals';
 
 export type AnimeTops = {
     // aired: {from: string, to: string, prop: {…}, string: string}

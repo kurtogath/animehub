@@ -1,3 +1,3 @@
-export * from "./anime";
-export * from "./characters";
-export * from "./manga";
+export * from './anime';
+export * from './characters';
+export * from './manga';
