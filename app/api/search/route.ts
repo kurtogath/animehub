@@ -36,7 +36,9 @@ export async function GET(req: Request) {
             );
         }
         console.log(`type >= ${type}`);
-        const resp = allSearch.filter(el => el.title.toLowerCase().includes(type.toLowerCase()))
+        const resp = allSearch.filter((el) =>
+            el.title.toLowerCase().includes(type.toLowerCase()),
+        );
         return NextResponse.json(resp);
     } catch (error) {
         console.log("error => ", error);
