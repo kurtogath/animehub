@@ -12,10 +12,16 @@ export default function Header() {
                 </Link>
                 <nav className="flex space-x-4">
                     <SearchBar />
-                    <Link href="/" className="hover:text-gray-300">
+                    <Link
+                        href="/"
+                        className="flex items-center hover:text-gray-300"
+                    >
                         Inicio
                     </Link>
-                    <Link href="/login" className="hover:text-gray-300">
+                    <Link
+                        href="/login"
+                        className="flex items-center hover:text-gray-300"
+                    >
                         <User />
                     </Link>
                 </nav>
