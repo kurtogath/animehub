@@ -4,16 +4,19 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbopack",
-        "build": "next build",
+        "build": "prisma generate && next build",
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
-        "test": "jest"
+        "test": "jest",
+        "prisma-dev": "prisma studio"
     },
     "dependencies": {
+        "@prisma/client": "^6.6.0",
         "axios": "^1.8.4",
         "lucide-react": "^0.488.0",
         "next": "15.3.0",
+        "prisma": "^6.6.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
     },
