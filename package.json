@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "prisma generate && prisma migrate dev && next dev --turbopack",
+        "dev-test": "next dev --turbopack",
         "build": "prisma generate && next build",
         "start": "next start",
         "lint": "next lint",
@@ -14,6 +15,7 @@
     "dependencies": {
         "@prisma/client": "^6.6.0",
         "axios": "^1.8.4",
+        "bcryptjs": "^3.0.2",
         "lucide-react": "^0.488.0",
         "next": "15.3.0",
         "prisma": "^6.6.0",
